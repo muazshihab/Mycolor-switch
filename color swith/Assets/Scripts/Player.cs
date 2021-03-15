@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public AudioClip sd_change;
     public AudioClip sd_die;
     public GameObject part_die;
+    TrailRenderer tr;
 
 
 
@@ -33,14 +34,14 @@ public class Player : MonoBehaviour
         // color[1] = Color.green;
         // color[2] = Color.blue;
         // color[3] = Color.magenta;
-        Camera camera = Camera.main;
-        ymin = camera.ViewportToWorldPoint(new Vector3(0,0,0)).y;
+
 
 
         restpos = transform.position;
   
 
         rb = GetComponent<Rigidbody2D>();
+        tr = GetComponent<TrailRenderer>();
         // sr = GetComponent<SpriteRenderer>();
 
 
@@ -62,6 +63,9 @@ public class Player : MonoBehaviour
             sr.color = new Color32(34, 130, 197,255); //Color.blue;//color[mycolor];
         if (mycolor == 3)
             sr.color = new Color32(134, 31, 195,255); //Color.magenta;//color[mycolor];
+
+        tr.startColor = sr.color;
+        tr.endColor = new Color(sr.color.r,sr.color.g,sr.color.b,0f);
     }
 
 
@@ -69,7 +73,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        Camera camera = Camera.main;
+        ymin = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
+
+
+
+        if (TouchPressed() || Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector2(0f, jumpspeed);
             myaudio.PlayOneShot(myaudio.clip,1);
@@ -133,5 +143,17 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    public static bool TouchPressed()
+    {
+        bool b = false;
+        for (int i = 0; i < Input.touches.Length; i++)
+        {
+            b = Input.touches[i].phase == TouchPhase.Began;
+            if (b)
+                break;
+        }
+        return b;
+    }
 
 }

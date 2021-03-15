@@ -7,11 +7,12 @@ public class Star : MonoBehaviour
 
     public AudioClip myclip;
     public GameObject part;
+    //public Animator animator;
 
 
     private void LateUpdate()
     {
-        transform.Rotate(0f, 0f, 0f);
+        //transform.Rotate(0f, 0f, 0f);
       //  myaudio.PlayOneShot(myaudio.clip);
     }
 

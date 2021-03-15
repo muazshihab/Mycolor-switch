@@ -5,7 +5,13 @@ using UnityEngine;
 public class Circle : MonoBehaviour
 {
     public float rotspeed = 10f;
+    public GameObject star;
 
+
+    private void Start()
+    {
+        Instantiate(star, transform.position, Quaternion.identity);
+    }
     // Update is called once per frame
     void Update()
     {
