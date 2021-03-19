@@ -611,6 +611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: circle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5960062603197837802, guid: 906a8900f42e74f4f81332642177b270, type: 3}
+      propertyPath: rotspeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5960062603197837803, guid: 906a8900f42e74f4f81332642177b270, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -852,6 +856,10 @@ PrefabInstance:
     - target: {fileID: 1396739359764770394, guid: cc5fc5c3e64244ea18e9adf95afa5941, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396739359764770395, guid: cc5fc5c3e64244ea18e9adf95afa5941, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5fc5c3e64244ea18e9adf95afa5941, type: 3}
